@@ -62,6 +62,7 @@ is_loop=True
 while is_loop:
     user_list.append(input(f"Postion {i+1} element = "))
     if user_list[i]=="":
+        user_list.remove(user_list[i])
         is_loop=False#For terminating the while loop 
     i+=1
 #print 
