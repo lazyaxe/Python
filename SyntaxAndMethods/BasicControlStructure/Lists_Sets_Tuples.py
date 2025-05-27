@@ -75,6 +75,7 @@ is_loop=True
 while is_loop:
     user_list.insert(i ,input(f"Postion {i+1} element = "))
     if user_list[i]=="":
+        user_list.remove(user_list[i])
         is_loop=False
     i+=1
 
