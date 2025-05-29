@@ -45,6 +45,28 @@ for i in range(row):
         print(User_2D_List[i][j], end=" ")
     print()
 
+array_2D=[]
+i=0
+j=0
+is_loop=True
+is_nested_loop=True
+while is_loop:
+    temporary_row=[]
+    while is_nested_loop:
+        temporary_row.insert(j, input(f"Element ({i+1},{j+1}) = "))
+        if temporary_row[j]=="":
+            temporary_row.remove(temporary_row[j])
+            break
+        j+=1
+    array_2D.append(temporary_row)
+    user_response=input("Do you want to enter another row? (Enter = yes)")
+    if user_response!="":
+        is_loop=False
+    j=0
+    i+=1
+for row in array_2D:
+    print(row)
+
 user_3D_List=[]
 i=int(input("Enter the row size = "))
 j=int(input("Enter the max column size = "))
