@@ -13,14 +13,15 @@ else:
 print()
 #for absolute path
 
-    #use / or \\ or //instead of \ because python has commands like /t for tab etc...which can cause execptions during file detection.
-file_path = "//home//vhvhs//Documents//psst_i_foresee_mad_kitten.txt"
-
-if os.path.exists(file_path):
-    print(f"Location {file_path} exists!")
+    #use / or \\ or //instead of \ because python has commands like \t for tab etc...which can cause execptions during file detection.
+filepath="/home/vhvhs/Documents/psst_i_foresee_mad_kitten.txt"
+try:
+   if not os.path.exists(filepath):
+       raise FileNotFoundError("The file path does not exist!")
+except FileNotFoundError as fileNotFound:
+    print(fileNotFound)
 else:
-    print("Location could not be traced...")
-print()
+    print(f"File path={filepath} exists!")
 
 #To check that we are accessing a file or a directory we use isfile() and isdir() functions.
 file_path = "/home/vhvhs/AI-ML_Goodies"
