@@ -10,11 +10,9 @@ if os.path.exists(file_path):
 
 else:
     print("File could not be located.")
-print()
-#for absolute path
 
-    #use / or \\ or //instead of \ because python has commands like \t for tab etc...which can cause execptions during file detection.
-filepath="/home/vhvhs/Documents/psst_i_foresee_mad_kitten.txt"
+#for absolute path
+filepath="/home/vhvhs/python/SyntaxAndMethods/SampleFile.txt" #use / or \\ or //instead of \ because python has commands like \t for tab etc...which can cause execptions during file detection.
 try:
    if not os.path.exists(filepath):
        raise FileNotFoundError("The file path does not exist!")
@@ -24,20 +22,28 @@ else:
     print(f"File path={filepath} exists!")
 
 #To check that we are accessing a file or a directory we use isfile() and isdir() functions.
-file_path = "/home/vhvhs/AI-ML_Goodies"
+file_path2 = "/home/vhvhs/python"
+try:
+    if os.path.exists(file_path2):
+        print(f"Location {file_path2} exists!")#there's no way to check id this a file or a directory.
 
-if os.path.exists(file_path):
-    print(f"Location {file_path} exists!")#no way to check id this a file or a directory, i think
-    
-    if os.path.isfile(file_path):#this return a boolean
-        print("This is a file bro.")
-    
-    elif os.path.isdir(file_path):
-        print("This is a directory.")
+        if os.path.isfile(file_path2):#this return a boolean
+            print("This is a file.")
 
-    else:
-        print("That's not a file or a directory bro.")
+        elif os.path.isdir(file_path2):
+            print("This is a directory.")
+        
+        else:
+            raise FileNotFoundError("There's no File/Directory here.")
 
-else:
-    print("Location could not be traced...")
-print()
+except FileNotFoundError as fileNotFound:
+    print(fileNotFound)
+
+except PermissionError:
+    print("Permission Denied!")
+
+except Exception:
+    print("Unknown Error Occured.")
+
+finally:
+    print("Execution completed.")
