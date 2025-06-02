@@ -9,16 +9,17 @@
 class Tree:
     def __init__(self, type, height):
         self.__type= type#due to name mangling in python the name of this attribute is now _Tree__type under the hood
-        self.__height = height # or you can do  self.__height = int(height) to avoid type convert in line 42
+        self._height = height # or you can do  self._height = int(height) to avoid type convert in line 42
+        #due to being a single underscore naming convention it does not triggers Name Mangling.It is used as a reminder that this variable is NOT FOR PUBLIC MODIFICATION.
     
     #making up a getter to fetch the value
     def get_height(self):
-        return self.__height
+        return self._height
     
     #making up a setter to give the access
     def set_height(self, new_height):
         if 100>new_height>0:
-            self.__height = new_height#if the condition is true only then setter is initiallizes the value.
+            self._height = new_height#if the condition is true only then setter is initiallizes the value.
     
     #making up a getter to fetch the value
     def get_type(self):
