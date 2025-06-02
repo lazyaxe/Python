@@ -5,13 +5,12 @@ try:
     with open(file_path, 'r') as file:#this a context manager('with', 'as') in this case they auto mate the opening and closing of a file effectively
         content_of_file = file.read()
         print(content_of_file)
-
 except FileNotFoundError:
     print("File not found, Read Error")
-
 except PermissionError:
     print("File Read Error, Permission denied.")
-print()
+except Exception:
+    print("Error occoured.")
 
 import json
 print("for json file")
@@ -30,6 +29,8 @@ except PermissionError:
     print("File read permission denied.")
 except json.decoder.JSONDecodeError:
     print("Json file decoding failed.")
+except Exception:
+    print("Error occoured.")
 
 import csv
 from itertools import zip_longest
