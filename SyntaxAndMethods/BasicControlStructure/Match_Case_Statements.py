@@ -13,7 +13,7 @@ def day_of_the_week(day):
             return "Thursday"
         case 6:
             return "Friday"
-        case 7:
+        case 0: #because 7%7=0
             return "Saturday"
         case _: #default:
             return "Invaild input"
@@ -26,4 +26,7 @@ while is_loop:
     else:
         day = int(day)
         day=day%7
-        print(day_of_the_week(day))
+        if day==0:
+            print("Invaild Input")
+        else:
+            print(day_of_the_week(day))
