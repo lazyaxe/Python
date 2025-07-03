@@ -22,8 +22,9 @@ print(result8)
 inputPhoneNumber=input("Enter a phone number:")
 result9 = inputPhoneNumber.count("*")#counts the number of time '-' was used
 print(result9)
-result10=inputPhoneNumber.replace("-","")#replace phone_number dashes(-) with empty chars
+result10=inputPhoneNumber.replace("-","")#replace phone_number dashes(-) with empty chars, also has count= arugment which serves as index for replacing the old literal a certain number of times.
 print("Now = ",result10)
+print(inputPhoneNumber.replace(""," (._.) ", count=1))
 
 #print(help(str))
 #more string functions/methods can be found by help(str)
