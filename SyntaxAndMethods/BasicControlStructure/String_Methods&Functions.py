@@ -3,9 +3,9 @@
 name=input("Enter your full name: ")#for example "harsh Sharma"
 result1=len(name)#returns the number of chars including whitespace(s)
 print(result1)
-result2=name.find("o")#finds the first instance of a given char in a string, counts from 0, returns  -1  if not found
+result2=name.find("o")#finds the first instance of a given char in a string, counts from 0, returns  -1  if not found, suports a offset index as second arguement 
 print("Result 2 = ",result2)
-result3=name.rfind("1")#reversefind, finds the last instance of a given char, return -1 if not found
+result3=name.rfind("1")#reversefind, finds the last instance of a given char, return -1 if not found, suports a offset index as second arguement
 print(result3)
 result4=name.capitalize()#Upper cases the first char of given string
 print(result4)
