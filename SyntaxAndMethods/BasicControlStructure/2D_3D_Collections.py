@@ -80,3 +80,28 @@ for row in range(i):
         temporary_2D_matrix.append(temporary_row)
     user_3D_List.append(temporary_2D_matrix)
 print("List = ",user_3D_List)
+
+D=[]
+max_row=int(input("Enter the number of rows: "))
+max_column=int(input("Enter the number of column: "))
+max_instances=int(input("Enter the number of instances: "))
+row=0
+column=0
+instance=0
+while row<max_row:
+    temporary_list=[]
+    print("Current row:",row+1)
+    column=0
+    while column<max_column:
+        print("Current column: ", column+1)
+        temporary_row=[]
+        instance=0
+        while instance<max_instances:
+            print("Current inst =",instance+1)
+            temporary_row.append(int(input(f"Enter a value of cell ({row+1}, {column+1}, {instance+1}) : ")))
+            instance+=1
+        temporary_list.append(temporary_row)
+        column+=1
+    D.append(temporary_list)
+    row+=1
+print(D)
