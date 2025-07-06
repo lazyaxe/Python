@@ -23,10 +23,12 @@ while is_loop:
     if (day.lower()=="e"):
         print("Exiting.....")
         is_loop=False
+    elif not day.isdigit():
+        print("Invaild Input")
     else:
-        day = int(day)
-        day=day%7
-        if day==0:
+        day=int(day)
+        if day<=0:
             print("Invaild Input")
         else:
+            day%=7
             print(day_of_the_week(day))
