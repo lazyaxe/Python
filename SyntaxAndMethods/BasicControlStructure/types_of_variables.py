@@ -37,6 +37,6 @@ print(age)
 # converting a string to a bool datatype
 string = "1"
 print(f"This", string, "also works...")
-string = bool(string)
+string = bool(string)#Non-empty=True, Empty=False
 print("Alternative way to use print ", string)#bool is false when string is empty, it is used as a empty string detector
 print(f"is string non-empty ? {string}")
