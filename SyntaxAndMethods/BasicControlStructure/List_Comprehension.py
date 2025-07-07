@@ -8,15 +8,13 @@ print("For lists")
 fruits = ["apple", "banana", "cherry", "coconut"]
 fruits=[fruit.capitalize() for fruit in fruits]
 print(fruits)
-    #alternative way
-fruits=[print(fruit.capitalize(), end=" ") for fruit in fruits]
-print()
 
-fruit_chars=[fruit_name[0] for fruit_name in ["apple", "banana", "cherry", "coconut"]]#fruit_name[0]=first char of the word
+
+fruit_chars=[fruit_name[0] for fruit_name in ["apple", "banana", "cherry", "coconut"]]#fruit_name[0]=first char in the fruit_name
 print(fruit_chars)
 print()
 
-#IF ELIF CONDITIONS
+#With IF CONDITIONS
 integers=[1, 0, 2, 4, 6, 7, 89, -2, -3, 41]
 whole_numbers=[abs(integer) for integer in integers if integer >=0]
 print(whole_numbers)
