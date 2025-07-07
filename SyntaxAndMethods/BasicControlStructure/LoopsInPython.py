@@ -38,7 +38,7 @@ while i<10:
 #range(5)=generates list of [0, 1, 2, 3, 4]
 #range(1,7)= generates a list of including numbers including 1 but not 7=> [1, 2, 3, 4, 5, 6]
 #range(3, 31, 3)= generates a list of numbers including 3 but not 31 and skips by only printing  every 3rd element=> [3, 6, 9, 12, 24, 27, 30]
-# 'in' is membership operator that checks if i is IN range of 0 to 4 is range is iterated successfully the 'in' returns False and loop is terminated.
+# 'in' is membership operator that checks if i is IN range of 0 to 4 is range is iterated successfully. If the 'in' returns False and loop is terminated.
 
 #FOR LOOP IN PYTHON
 for i in range(4):
