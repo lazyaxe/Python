@@ -114,7 +114,7 @@ print("pineapple" in fruits)#checks if pineapple is in tuple of fruits, returns 
 print(len(fruits))
 print(fruits.count("watermelon"))# also available for the list
 
-print("FOR LOOP FOR TUPLES ↓")
+print("FOR LOOP FOR PRINTING TUPLES ↓")
 for fruit in fruits:
     print(f"{fruit}", end=" ")#To print horizontally
 #fruits.clear() does not work in Tuples
