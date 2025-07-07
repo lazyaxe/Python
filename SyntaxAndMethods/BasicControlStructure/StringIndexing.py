@@ -19,7 +19,7 @@ print(credit_card_number[-1])#this prints the last element
         #4
 
 #we can also step (skip number by a pattern)
-print(credit_card_number[::2])#this prints from the 0th element to last element but only prints every 2nd element
+print(credit_card_number[::2])#this prints from the 0th element to last element but skips every element of index that is multiple of 2  
         #11-2428
 
 #to print the last digits of credit card
