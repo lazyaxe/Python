@@ -59,12 +59,36 @@ for key,value in countries_and_capitals.items():#here the key,value is different
 
 #user input dictionary
 my_dictionary={}
-iteration = int(input("How many keys the dictionary"))
+iteration = int(input("How many enteries to the dictionary? ="))
 for i in range(iteration):
-    key = input("Input key of the dictionary")
-    value = input(f"Input value for {key}")
+    key = input(f"Input key {i+1} = ")
+    value = input(f"Input value for {key} =")
     my_dictionary[key]=value
-    print("k:v added = ", i+1)
+    print(f"Entry {i+1}")
 print(my_dictionary)
+
 for k,v in my_dictionary.items():
     print(f"{k}:{v}")
+
+dict_sample={}
+iteration = int(input("How many enteries to the dictionary? ="))
+i=0
+while i<iteration:
+    key = input(f"Input key {i+1} = ")
+    value = input(f"Input value for {key} =")
+    my_dictionary[key]=value
+    i+=1
+i=0
+print(dict_sample)
+
+dict_sample={}
+is_loop=True
+counter=0
+while is_loop:
+    key=input(f"Enter the Key {counter+1}[whitespace/enter to exit]=")
+    if key=="" or key==" ":
+        is_loop=False
+    else:
+        dict_sample[key]=input(f"Value of {key}= ")
+        counter+=1
+print(dict_sample)
