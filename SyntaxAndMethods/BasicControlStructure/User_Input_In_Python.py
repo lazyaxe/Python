@@ -17,4 +17,4 @@ sample1 = int(input("Input a int:"))#input string will be typecasted into a int 
 print(f"{name}, sample1 will now store data of",type(sample1))
 
 input("What is your name ? = ")
-#This does not store any value in the variable, but it works
+#This does not store any value in the variable, but it works...
