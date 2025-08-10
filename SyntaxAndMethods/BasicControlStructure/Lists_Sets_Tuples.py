@@ -1,12 +1,24 @@
-#1D Collections in Python
+"""
+1D Collections in Python
 
-    #Lists = ["", ""] ordered and changeable(mutable), duplicates are allowed.
-fruits=[]# Declaring and Initiallizing a empty list.
+Lists = ["", "", ...] ordered and changeable(mutable), duplicates are allowed.
+
+Tuples=("", "", ...) ordered but unchangble(im-mutable), duplicates allowed.
+
+Sets- {"", "", ...} unordered, mutable, duplicates not allowed
+""" 
+
+#1. Lists
+fruits=[]#Initiallizing a empty list named 'fruits'.
+
 fruits = ["apple", "apples", "orange", "coconut"]
-fruits[0] = "pineapple"# re-intializing the first item in list 
-print(fruits)        #prints the full list
 
-#Note: in python unintialized or empty lists cannot be initialized like arrays in C/C++, only append and insert method is used?
+fruits[0] = "pineapple"# re-intializing the first item in list 
+
+print(fruits)#prints the full list
+
+#Note: in python unintialized or empty lists cannot be initialized like arrays in C/C++, only append and insert method is used.
+
 fruits.append("banana")#add an item in a end of a list
 print(fruits)
 
@@ -22,19 +34,22 @@ print(fruits[:4])  #alternatively
 print(fruits[::-1])#reverse print list
 print(fruits[::2]) #print list and skip 2nd element 
 print()
-print("lists by FOR LOOPS")
-for fruit in fruits: #here fruit=i and fruits=the list elements, i(fruits) holds the value of list's one item for each iteration goes to next item till end of the list.
+
+print("Printing list by for loop")
+
+for fruit in fruits:
+    """ 
+    Here fruit=i and fruits=the list elements, i(fruits) holds the value of list's one item for each iteration goes to next item till end of the list.
+    """
     print(fruit, end=", ")
 print()
+
 #print(dir(fruits))
 print(len(fruits))#the number of items in the list
-           
-fruits.sort()#sorts alphabetically
-print(fruits) 
 
-print("lists sorted alphabetically")
-fruits.sort()#sorts alphabetically
-print("reverse alphabetically sorted:", end="")
+#List of strings is sorts alphabetically
+print("Sorted list", fruits.sort()) 
+
 fruits.reverse()#sorts reverse by the order they were put
 print(fruits)
 
@@ -46,7 +61,8 @@ fruits.clear()
 print("List is cleared now, empty (List contains 0 items)")
 print(fruits)
 
-#How to store and print a user inputed list
+#Store and print a user inputed list:
+
 list_nums = []#initializing a empty list
 size=int(input("Enter your list size = "))
 for i in range(size):
@@ -62,7 +78,7 @@ is_loop=True
 while is_loop:
     user_list.append(input(f"Postion {i+1} element = "))
     if user_list[i]=="":
-        user_list.remove(user_list[i])
+        user_list.remove(user_list[i])#removing the appended element.
         is_loop=False#For terminating the while loop 
     i+=1
 #print 
@@ -76,7 +92,7 @@ is_loop=True
 while is_loop:
     user_list.insert(i ,input(f"Postion {i+1} element = "))
     if user_list[i]=="":
-        user_list.remove(user_list[i])
+        user_list.remove(user_list[i])#removing the inserted element.
         is_loop=False
     i+=1
 
@@ -84,11 +100,33 @@ while is_loop:
 for x in user_list:
     print(x, end=" ")
 
+#2. Tuple = ('', '') oredered unchangeable(immutable), duplicates allowed and faster than lists
 
-#Set = {"",""} unordered and unchangable(immutuable) and any duplicate element(s) is removed.
-fruits = {"apple", "pineapple", "orange", "coconut"}
+print("TUPLES")
+fruits=('apple', 'tomato', 'cherry', 'banana', 'watermelon', 'watermelon')
+
 #print(dir(fruits))
+#print(help(fruits)) for additional help
+
+print("pineapple" in fruits)#checks if pineapple is in tuple of fruits, returns boolean
+
 print(len(fruits))
+
+print(fruits.count("watermelon"))# also available for the list
+
+print("FOR LOOP FOR PRINTING TUPLES ↓")
+for fruit in fruits:
+    print(f"{fruit}", end=" ")#To print horizontally
+#fruits.clear() does not work in Tuples
+
+#3. Set = {"",""} unordered and unchangable(immutuable) and any duplicate element(s) is removed.
+
+fruits = {"apple", "pineapple", "orange", "coconut"}
+
+#print(dir(fruits))
+
+print(len(fruits))
+
 print("cherry" in fruits)#checks if "cherry" is in the set, returns boolean
 #print(fruits[0]) won't work on sets because they are unordered i.e. sets do not have an index
 
@@ -101,20 +139,6 @@ print(fruits)
 fruits.pop()#removes the a element, but it could be any element i.e. because they are unordered
 print(fruits)
 
-fruits.clear()
+fruits.clear()#removes all the elements.
 print(fruits)
 print()
-
-#Tuple = ('', '') oredered unchangeable(immutable), duplicates allowed and faster than lists
-print("TUPLES")
-fruits=('apple', 'tomato', 'cherry', 'banana', 'watermelon', 'watermelon')
-#print(dir(fruits))
-#print(help(fruits)) for additional help
-print("pineapple" in fruits)#checks if pineapple is in tuple of fruits, returns boolean
-print(len(fruits))
-print(fruits.count("watermelon"))# also available for the list
-
-print("FOR LOOP FOR PRINTING TUPLES ↓")
-for fruit in fruits:
-    print(f"{fruit}", end=" ")#To print horizontally
-#fruits.clear() does not work in Tuples
