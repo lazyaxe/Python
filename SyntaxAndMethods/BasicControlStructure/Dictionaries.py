@@ -1,45 +1,68 @@
-#Dictionary is a collection of {key:value} pair ordered and mutable values, but no duplicates
+
+"""
+Dictionary:
+    A dictionary is a mutable data strucure in Python
+    It stores data in ordered key-value pairs.
+    A key cannot be dupicate.
+
+SYNTAX:
+    sample: dict={
+                    key1: value1,
+                    key2: value2,
+                    key3: value3
+                        .
+                        .
+                        .
+                    keyN: valueN
+                 }
+"""
+#Creating a dictionary(dict)
 countries_and_capitals= {
                          "India":"New Delhi",
                          "USA":"Washington D.C.",
                          "Japan":"Tokyo",
                          "China":"Beijing"
                          }
+
 #print(dir(countries_and_capitals)) ,to know all the methods
 #print(help(countries_and_capitals)) ,
 
-print(countries_and_capitals.get("India"))#get() will find the matching key in dictionary and return the value of the key
+#get()
+print(countries_and_capitals.get("India"))
+#get() will find the matching key in countries_and_capitals and return the value of the key.
 
-print(countries_and_capitals.get("Pakistan"))#because not in dictionary, it will return "None" value.
+print(countries_and_capitals.get("Pakistan"))#because 'Pakistan' is not a key in countries_and_capitals, it will return "None" value.
 
-#to check a key in a dictionary
-#This will function like a boolean with if-else
+#This can function like a boolean with if-else statement
 if countries_and_capitals.get("China"):
     print("Captial of China exists in the dictionary")
 elif countries_and_capitals.get("China")==None:
      print("Captial of China does not exists in the dictionary")
 else:
      print("This is an exeception.")
+
 #FOR APPENDING A NEW ENTRY IN DICTIONARY
-countries_and_capitals["Pakistan"] = "Karachi"#append(add) a new key-value
+countries_and_capitals["Pakistan"] = "Karachi"
 
 #FOR UPDATING A ENTRY IN DICTIONARY
 countries_and_capitals["China"]= "New Beijing"#Update a value of key
-
 print(countries_and_capitals)
 
 #FOR DELETEING A SELECTED ENTRY
 print("TO DELETING A KEY:VALUE in Dictionary")
-countries_and_capitals.pop("China")#deletes key "China" and "value"
+countries_and_capitals.pop("China")#deletes key "China" and value "Beijing"
 
 #FOR DELETING THE LATEST ENTRY IN DICTIONARY
 print("To delete a latest appending")
-countries_and_capitals.popitem()#deletes the latest appended key-value i.e. Pakistan
+countries_and_capitals.popitem()
+#deletes the latest appended key-value i.e. Pakistan-Karachi
 print(countries_and_capitals)
 
 keys = countries_and_capitals.keys()
-print(keys)# prints the keys of the dictionary i.e. prints countries only
+print(keys)
+# prints the keys of the countries_and_capitals i.e. prints countries only
 print()
+
 print("Printing each key by loops")
 for key in countries_and_capitals.keys():
      print(key)
@@ -48,6 +71,7 @@ print()
 values=countries_and_capitals.values()
 print(values)
 print()
+
 print("Printing each value by loops")
 for value in countries_and_capitals.values():
      print(value)
