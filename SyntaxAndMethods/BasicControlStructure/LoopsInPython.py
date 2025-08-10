@@ -1,18 +1,52 @@
-#WHILE LOOP 
-    #While loops executes some code while some condition is true
+"""
+Loops:
+    Loops are a block of code which is executed a number of times till a certain condition is met i.e. iterate(repeat) as long as a condition is True.
+
+There are mainly 2 types of loops:
+1.Entry-controlled:
+    An entry controlled loop is a loop where the iteration of a loop is triggered AFTER the condition is True.
+    The iteration is done till the condition is true.
+
+    loop(condition)
+    {
+        #Iteration
+    } 
+
+2. Exit-controlled:
+    An exit-contolled loop is a loop where the iteration is triggered BEFORE the condition is False.
+    The iteration is done atleast once.
+    loop(True)
+    {
+        #iteration
+        if not_condition:
+            break
+    }
+
+There are mainly 2 loops in python:
+1. For loop(entry-controlled)
+2. While loop(entry controlled)
+"""
+
+"""
+WHILE LOOP: 
+
+SYNTAX:
+
+counter=0
+while(condition):
+    #code
+    counter+=1
+"""
+i=0
+while(i<5):
+    print("The i is ",i)
+    i+=1
+
+
 name = input("Enter your name =")
 while(name == "" or name==" "):
     name=input("Please enter your name =")
 print(f"Hello, {name} !")
-is_loop = True
-while is_loop:
-    food= input("Enter a food you like:(nullspace/empty string to exit loop): ")
-    print(f"You like {food}")
-    if not food=="":
-        food= input("Enter a another food you like("" to exit loop):")
-    else:
-        is_loop=False
-print("You exited the program.")
 
 number = int(input("Enter a number between 1 to 10:"))
 while not 1<number<10: #while number <(LESSER THAN) 1 or number >(GREATER THAN) 10:(iterate/excecute the loop) 
@@ -33,35 +67,65 @@ i=0
 while i<10:
     print(i)
     i+=1
+"""
+FOR LOOP:
 
-#WHAT IS range() function?
-#range(5)=generates list of [0, 1, 2, 3, 4]
-#range(1,7)= generates a list of including numbers including 1 but not 7=> [1, 2, 3, 4, 5, 6]
-#range(3, 31, 3)= generates a list of numbers including 3 but not 31 and skips by only printing  every 3rd element=> [3, 6, 9, 12, 24, 27, 30]
-# 'in' is membership operator that checks if i is IN range of 0 to 4 is range is iterated successfully. If the 'in' returns False and loop is terminated.
+SYNTAX:
 
-#FOR LOOP IN PYTHON
+for i in range(number):
+    #code
+
+A for loop generally uses a range() function for the counter updation/incrementation.
+
+1. What is range() function?:
+The range() generates a list of numbers form 0 to n-1.
+
+The range function can have three arguements:
+    i. stop: range(31)
+    ii. start: range(5, 31), creates a list from 5 to 30.
+    iii. step: range(5, 31, 2), creates a list from 5 to 30 but skipping 2 numbers [7, 10, 13, ...]  
+For example:
+    range(5)=generates list of [0, 1, 2, 3, 4]
+
+    range(1,7)= generates a list of including numbers including 1 but not 7=> [1, 2, 3, 4, 5, 6]
+
+    range(3, 31, 3)= generates a list of numbers including 3 but not 31 and skips by only printing  every 3rd element=> [3, 6, 9, 12, 24, 27, 30]
+
+2. 'in' is membership operator that checks if the 'i' is IN range of 0 to 'number' or not. If True, loop is iterated successfully. 
+If the 'in' returns False and loop is terminated.
+"""
 for i in range(4):
     print(i)
     #loop to print items on the same line
-
-for i in range(5):
-    print(i, end=" ")#print i from 0 to 4(5 elements) and add a space(" ") at the end of each iteration
 print()#for new line
 
-for i in reversed(range(10)):
-    print(i, end=" ")#print i from 4 to 0(5 elements) and add a white space char(" ") at the end of each iteration
-print()#for new line char
+for i in range(5):
+    print(i, end=" ")#print i from 0 to 4(5 elements) and append a space(" ") at the end of each iteration
+print()
 
-for i in range(1,31,2):#in = membership operator that checks that iteration is in range from 1 to 31 or not and return a boolean i.e if i is in range then while True if not then while False
+for i in reversed(range(10)):
+    print(i, end=" ")
+print()
+
+"""
+continue and break:
+    continue and break are keywords used modify the flow of a loop 
+
+    1. continue:
+            Acts as a 'skip' statement.
+    
+    2. break:
+            Used to terminate a loop when a specific condition has met.
+"""
+for i in range(1,31,2):
     if i==13:
         continue
     elif(i<=29):
         break
     else:
-        print(i, end=" ")#print i from 1 to 30(31 elements) and count only the 2nd iteration and add a space(" ") at the end of each iteration.
+        print(i, end=" ")
 
-print()#for new line char
+print()
   
 x = int(input("please enter x not between 1 and 100:"))
 
@@ -71,4 +135,16 @@ for i in range(4):#for each iteration of i [0, 1, 2, 3, 4] iterate some code,4 t
         x = int(input("please enter not x between 1 and 100:"))
     else:
         print(f"{x} is vaild.")
+        break
+
+# for more info on for vs while loop. visit: https://www.geeksforgeeks.org/dsa/difference-between-for-loop-and-while-loop-in-programming/
+
+"""
+Do-while loop implementation:
+"""
+i=0
+while(True):
+    print(i)
+    i+=1
+    if(i>5):
         break
