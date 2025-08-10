@@ -1,6 +1,10 @@
-#List comprehension is the easier way to create a iterate/condionify a list
-#Syntax:- list_name = [command for_loop variable_name in_operator if_satement condition] 
-
+"""
+List comprehension:
+    List comprehension is the shorter and simpler way to create a list
+Syntax:- 
+    list_name = [<element> for <counter> in range() if <condition>] 
+    list_name = [<element> for <item> in <another_list> if <condition>] 
+"""
 doubles_list = [number*2 for number in range(1, 11)]#this will iterate till number== 1 to 11 and return number*2
 print(doubles_list)
 
