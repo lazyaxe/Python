@@ -2,49 +2,61 @@
 fruits = ["Apple", "Mango", "Orange"]
 vegetables=["Carrot", "Peas", "Potato"]
 UPFs=["Chips", "Soda", "Ice-Cream"]
+"""
+2D collections:
+Examples of 2D collections are:- 
+    1. List of lists, 
+    2. Tuples of tuples
+    3. List of tuples etc... are possible in python
+"""
 
-#2D collections
-#Examples of 2D collections are:- a list of lists, tuples of tuples and tuples of sets are possible in python
 groceries=[fruits, vegetables, UPFs]
-            #OR
+#OR
 groceries=[["Apple", "Mango", "Orange"],         
            ["Carrot", "Peas", "Potato"], 
            ["Chips", "Soda", "Ice-Cream"]]
+
 print("To print the 0th row")
 print(groceries[0])#prints the 0th row
+
 print("To print the 0th element")
 print(groceries[0][0])#prints element at 0th row and at 0th column
 
 print("To print the 2D list")
 print(groceries)
-print("TO ITERATE OVER EACH ROW")
+
+print("Printing each row in 2D List")
 for collection_of_food in groceries:
     print(collection_of_food)
+
 print("OR")
-print("to iterate over the each element, we need nested for/while loop")
+
+print("Printing over each element in 2D List:")
 for collection_of_food in groceries:
     for food in collection_of_food:
         print(food, end=" ")
     print()
 
-#for taking input for 2D collections
-User_2D_List = []#initializing a empty list.
+#User defined 2D List by for loops:
+User_2D_List = []
 row=int(input("Enter your list row size = "))
 column=int(input("Enter your list coloumn size = "))
 print(f"Row = {row}, Coloumn = {column}")
 for i in range(row):
     temporary_row =[]
     for j in range(column):
-        temporary_row.append(int(input()))#temporary row to hold the inputs, Insert method will also work
+        temporary_row.append(int(input()))#Insert method will also work
         print("*", end=" ")
-    User_2D_List.append(temporary_row )#the inputted row is now appended to User_2D_List then the list is stored in an another list and then the loop iterates and the value is set again to zero 
-    print()
+    User_2D_List.append(temporary_row )#the inputted temp row is now appended to User_2D_List
+print()
+
 print("Now printing:")
 for i in range(row):
     for j in range(column):
         print(User_2D_List[i][j], end=" ")
     print()
 
+#User defined 2D List by while loops:
 array_2D=[]
 i=0
 j=0
@@ -67,27 +79,29 @@ while is_loop:
 for row in array_2D:
     print(row)
 
+# user input 3D list by for loop
 user_3D_List=[]
 i=int(input("Enter the row size = "))
-j=int(input("Enter the max column size = "))
-z=int(input("Enter multiple size = "))
+j=int(input("Enter the column size = "))
+k=int(input("Enter k size = "))
 for row in range(i):
     temporary_2D_matrix=[]
     for column in range(j):
         temporary_row=[]
-        for somthing in range(z):
+        for somthing in range(k):
             temporary_row.append(input(f"Postion {row+1},{column+1},{somthing+1} element = "))
         temporary_2D_matrix.append(temporary_row)
     user_3D_List.append(temporary_2D_matrix)
 print("List = ",user_3D_List)
 
-D=[]
+# user input 3D list by while loop
+List_3D=[]
+
 max_row=int(input("Enter the number of rows: "))
 max_column=int(input("Enter the number of column: "))
 max_instances=int(input("Enter the number of instances: "))
+
 row=0
-column=0
-instance=0
 while row<max_row:
     temporary_list=[]
     print("Current row:",row+1)
@@ -102,6 +116,7 @@ while row<max_row:
             instance+=1
         temporary_list.append(temporary_row)
         column+=1
-    D.append(temporary_list)
+    List_3D.append(temporary_list)
     row+=1
-print(D)
+
+print(List_3D)
