@@ -15,6 +15,7 @@ Each elif statement can have its own condition(s).
 else condition is exceuted only when the if and elif conditions above it are False.
 An else condition can be thought as a safety net if all conditions fail above it.
 
+For making condition decay to Boolean(True or False), Conditional operators like '=='(is equal to), '> or <'(greater than or lesser than), '>= or <='(or lesser than or equal to), !=(not equal to) etc... are used.
 SYNTAX:
 if a_condition:
    #Only when the condition is true.
