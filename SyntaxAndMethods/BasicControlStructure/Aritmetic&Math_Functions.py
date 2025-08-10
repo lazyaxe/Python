@@ -1,7 +1,9 @@
-#Aritmetic Operators (+, -, *, /, **[exponents], % modulus)
+#Aritmetic Operators (+, -, *, /, **[exponents], % modulus, //)
+
 #Addition '+'
 NumberOfFriends=0
 NumberOfFriends = NumberOfFriends + 1
+
 #Addition + , NumberOfFriends => NumberOfFriends + 1
         # is same as (augmented operator)
 NumberOfFriends += 1
@@ -22,11 +24,13 @@ NumberOfFriends /= 2
 print(NumberOfFriends)
 
 NumberOfFriends=10
-#Exponents **
+
+#Exponentiation **
 NumberOfFriends = NumberOfFriends**2 #(NumberOfFriends)^2
 print(NumberOfFriends)
 
 NumberOfFriends=10
+
 #Moduluo %
 Remainder_NumberOfFriends= NumberOfFriends % 2
 print(Remainder_NumberOfFriends)
@@ -34,10 +38,16 @@ print(Remainder_NumberOfFriends)
 Remainder_NumberOfFriends= NumberOfFriends % 3
 print(Remainder_NumberOfFriends)
 
-#Math Functions in Python
 x = 3.002548
 y = -31
 z = 3
+
+#Floor division operator //
+print("The non-truncated output", x/z)
+print("The truncated output", x//z)
+
+
+#Math Functions in Python
 round_x = round(x)
 print(round_x)
 ModOfY= abs(y) # absolute value of x
