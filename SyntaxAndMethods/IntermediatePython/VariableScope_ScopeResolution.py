@@ -1,7 +1,10 @@
-#Variable scope = where a variable is visible and accessible
-#variables can share the same name as long as they are in different scope 
-#Scope resolution follows (L->E->G->B) Local->Enclosed->Global->Built-in
+"""
+Variable scope:
+    Variable scope is a field where a variable is visible/accessible or not.
+    Variables can have the same name as long as they are in different scope.
 
+Scope resolution follows (L->E->G->B) Local->Enclosed->Global->Built-in
+"""
 def function1():
     a=1 #local to function1()
     print(a)
@@ -11,11 +14,15 @@ def function2():
 
 function1()
 function2()
+#Both function1 and function2 have different value of a same named variable.
 print()
 
 print("For Nested functions:(Enclosed scope)")
-#Scope resolution order (L->EGB)
-#Definition: An enclosed variable is a variable that is defined in the scope of an outer (enclosing) function and is then referenced by an inner (nested) function
+#Scope resolution order is (L->EGB)
+"""
+Definition: An enclosed variable is a variable that is defined in the scope of an outer (enclosing) function and is then referenced by an inner (nested) function.
+"""
+
 def function3():
     a=1 #local to function1()
     print("The O.G Value = ",a)
