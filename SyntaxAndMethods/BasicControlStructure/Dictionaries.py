@@ -81,6 +81,45 @@ print()
 for key,value in countries_and_capitals.items():#here the key,value is different than value,key
      print(f"{key}'s capital is {value}")#also here
 
+"""
+Updating multiple values of a dictionary:
+
+~>update() method of dictionary datatype is used when one or multiple items in a dictionary need to be updated.
+
+~>It can also be used to make new items in a dictionary.
+"""
+dict1={
+    'A':'Apple',
+    'B':'Cinnamon',
+    'C':'Car',
+    'D':'Donkey'
+}
+dict1.update(B= 'Banana')
+
+#Updating an item
+print("\n")
+for key, value in dict1.items():
+    print(f"{key}={value}")
+
+#Both updating and adding an item.
+dict1.update(C="Carrot", D="Diary")
+print(dict1)
+
+#Concatinating another dict:
+dict2={
+    'D':'Dinosaur',
+    'E':'Elephant',
+    'F':'Fudge',
+    'G':'Guitar'
+}
+
+dict1.update(dict2)
+"""
+Here the dict1's 'D' key-value pair would be overwriiten by dict2 and other non-matching key will be appended to dict1.
+"""
+print(dict1)
+
+
 #user input dictionary
 my_dictionary={}
 iteration = int(input("How many enteries to the dictionary? ="))
@@ -101,6 +140,7 @@ while i<iteration:
     key = input(f"Input key {i+1} = ")
     value = input(f"Input value for {key} =")
     my_dictionary[key]=value
+    #or my_dictionary.update(key=value)
     i+=1
 i=0
 print(dict_sample)
