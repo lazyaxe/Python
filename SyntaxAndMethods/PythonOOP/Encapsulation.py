@@ -1,38 +1,66 @@
-#Encapsulation protects your classes from accidental changes or deletions in attributes and promotes code reusability and maintainability.
 
-    #Access Modifiers in Python
-        # for protected _MemberName(single underscore), this can be acccessed by base-class and its sub-classes
-        # for private __MemberName(double underscore), this can be acccessed by only the base-class
-    #if we access the access modified members of this class outside, we get an AtributeError.
+"""
+Encapsulation protects your classes from accidental changes or deletions in attributes and promote restriced usage for security and data isolation
 
-    #ways to access the modified members
+The Python follows the "We Are All Adults Here" (WAAAH) phillosphy...
+This means the encapsulation in python isn't as strict as other OOP paradigm languages like C++, Java...
+
+Access modifers: 
+The Access modifers are used to restrict the access of data/methods from objects which do not have privellge... 
+    Access Modifiers in Python:
+        for private _MemberName(single underscore), this can be acccessed by base-class and its sub-classes
+        for private(with name mangling) __MemberName(double underscore), this can be acccessed by only the base-class, '__' triggers the name mangling of the class_name.
+    If we access the access modified members of this class outside, we get an AtributeError.
+
+    There are mainly two ways to access the private varible:
+        1. Classic getter and setter approach.
+        2. By decorators.
+        3. Accessing them directly(Python doesn't care)
+        """
 class Tree:
-    def __init__(self, type, height):
-        self.__type= type#due to name mangling in python the name of this attribute is now _Tree__type under the hood
-        self._height = height # or you can do  self._height = int(height) to avoid type convert in line 42
-        #due to being a single underscore naming convention it does not triggers Name Mangling.It is used as a reminder that this variable is NOT FOR PUBLIC MODIFICATION.
-    
-    #making up a getter to fetch the value
-    def get_height(self):
+    def __init__(self, type: str, height: int|float):
+        self._height = height
+        self.__type= type
+        """
+            _height due to being a single underscore naming convention it does not triggers Name Mangling.It is used as a reminder that this variable is NOT FOR PUBLIC MODIFICATION.
+            __type due to name mangling in python the name of this attribute is now _Tree__type under the hood
+        """
+
+    #A getter to fetch the value
+    def get_height(self)-> int|float:
         return self._height
     
-    #making up a setter to give the access
+    #A setter to give the access
     def set_height(self, new_height):
         if 100>new_height>0:
             self._height = new_height#if the condition is true only then setter is initiallizes the value.
     
-    #making up a getter to fetch the value
-    def get_type(self):
+    #A getter to fetch the value
+    def get_type(self)->str:
         return self.__type
     
-    #making up a setter to give the access
+    #A setter to give the access
     def set_type(self, new_type):
         if new_type:
             self.__type = new_type
+    """
+        The access modifier can also be applied to methods
+    """
+    def _protected_method(self)->None:
+        print("This is a protected method.")
 
-tree1 = Tree("Pine Tree", "50")
+    def __private_method(self)->None:
+        print("This is a private method.")
 
-print("Type of Tree1 = ",tree1._Tree__type)#Due to ideology of python's "We are all adults here." Python does not forces us to explicitly use get set methods
+    def get__private_method(self):
+        return self.__private_method()
+
+tree1: object=Tree(type="Pine Tree", height=50)
+
+#Accessing the attributes via name mangling:
+print("Type of Tree1 = ",tree1._Tree__type)
+#Due to ideology of python's "We are all adults here." Python does not forces us to explicitly use get set methods.
+
 
 #accessing the attribute of height
 print(tree1.get_type())
@@ -40,14 +68,14 @@ print(tree1.get_height())
 
 print("Values can be input by:") 
 
-# Increase height by 5
+# Increase _height by 5
 tree1.set_type("Pepepopo tree")
 print(tree1.get_type())
 tree1.set_height(89)
 print(tree1.get_height())
 print()
 
-#If we want to increment the height by 5
+#If we want to increment the _height by 5
 tree1.set_height(int(tree1.get_height()) + 5)
 print(tree1.get_height())
 
@@ -58,3 +86,7 @@ tree1.set_type(input("Input Tree Type : "))
 print(tree1.get_type())
 tree1.set_height(int(input("Input Tree height : ")))
 print(tree1.get_height())
+
+tree1._protected_method()
+tree1._Tree__private_method()
+tree1.get__private_method()
