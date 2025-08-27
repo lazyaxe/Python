@@ -10,7 +10,7 @@
    An Object/Instance is a bundle of methods and functions and class members which are implimented by classes 
 """
 class Car:
-    def __init__(self, model, colour="White", is_car_sale=True):
+    def __init__(self, model:str, colour:str="White", is_car_sale:bool=True):
         """
             What is a constructor in python?
             ~> A constructor in Python is a dunder(double underscore) method by which the initialization of the attributes/class members is done directly when creating am instance of the class via arguements...
@@ -22,32 +22,34 @@ class Car:
             
             ~> The self parameter is the identifier for the object 
             
-            ~> So, instead of making instance_name.attribute=value for n different instances, the self keyword is only used the class .
+            ~> So, instead of making instance_name.attribute=value for n different instances, the self keyword is only used the class.
+            ~>The parameter names don't have to be same as the attribute names...
         """
         self.model = model
         self.colour =  colour
-        self.is_car_sale = is_car_sale
+        self.is_for_sale = is_car_sale
         
     #creating methods (functions inside a class)
-    def drive(self):
+    def drive(self)->None:
         """
-            The self.attribute_name is used for accessing the value of an attribute...
+            ~> The methods require self as a parameter only when defining the method.
+            ~> The self.attribute_name is used for accessing the value of an attribute...
         """
         print(f"You start driving {self.model}.")
-    def stop(self):
+    def stop(self)->None:
         print(f"You stopped driving {self.model}")
-    def details(self):
-        print(f"Model {self.model}")
+    def details(self)->None:
+        print(f"Model = {self.model}")
         print(f"{self.model}'s Colour = {self.colour}")
-        print(f"Sale Status = {self.is_car_sale}")
+        print(f"Sale Status = {self.is_for_sale}")
 
 if __name__=='__main__':
     """
     Creation of an instance/object
     """
-    car1=Car(model="Ford Mustang")
+    car1: object=Car(model="Ford Mustang")
 
-    car2= Car(model="Ford F-150", colour="Black", is_car_sale=True)
+    car2: object= Car(model="Ford F-150", colour="Black", is_car_sale=True)
     """
     Accessing the values of an object/instance
     SYNTAX: 
@@ -58,3 +60,12 @@ if __name__=='__main__':
 
 
     print(f"The colour of {car2.model} is {car2.colour}")
+
+    """
+    Accessing the methods of an object/instance
+    SYNTAX: 
+        instance_name.method()
+    """
+    car1.drive()
+    car2.stop()
+    car1.details()
