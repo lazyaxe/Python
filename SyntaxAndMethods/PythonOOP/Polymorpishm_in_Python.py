@@ -4,19 +4,19 @@
 
 from abc import ABC, abstractmethod #abc is abstractbaseclass and ABC is  ans abstractmethod is a decorator
 
-class shapes(ABC):
+class Shape(ABC):
     @abstractmethod#<--decorator
     def area(self):
         pass
 
-class circle(shapes):
+class circle(Shape):
     def __init__(self, radius):#no super() used here because parent class does not have any constructor to inherit/use
         self.radius=radius
     def area(self):
         return self.radius*self.radius*(22/7)
     def __str__(self):
         return "Circle"
-class triangle(shapes):
+class triangle(Shape):
     def __init__(self, witdh, height):
         self.width= witdh
         self.height=height
@@ -31,10 +31,10 @@ class pizza(circle):#multi level inheritance and also circle class has a constru
     def __str__(self):#returns a string to print function if instance/object is printed
         return "Pizza"
 
-shapes=[circle(radius=5), triangle(height=17, witdh=23), pizza(topping_name="pineapple", radius=12)]
+Shapes_list: list[object] =[circle(radius=5), triangle(height=17, witdh=23), pizza(topping_name="pineapple", radius=12)]
 
-for shape in shapes:
-    print(f"Area of {shape} = {shape.area()} sq cm.")#shape temporaily hold as the instance/object
+for shape_obj in Shapes_list:
+    print(f"Area of {shape_obj} = {shape_obj.area()} sq cm.")#shape_obj temporaily hold as the instance/object
 
 
 pizza1=pizza("pepe", 12)
