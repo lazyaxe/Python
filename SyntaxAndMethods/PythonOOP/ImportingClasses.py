@@ -1,7 +1,7 @@
 #An Object is a bundle of methods and functions and variables example: phonebook and book or Student
 #A Class is a blueprint of creating a object
 
-from CLASSexample import car
+from classes_and_objects import car
 # or import CLASSexample as CLASS
 
 #creating a object named "car_1"
