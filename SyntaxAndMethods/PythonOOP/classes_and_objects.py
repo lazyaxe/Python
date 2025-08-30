@@ -21,14 +21,16 @@ class Car:
               By self.attribute=value
             
             ~> The self parameter is the identifier for the object 
-            
+
+            ~> 'self' keyword is arbitrary and any keyword can be used but 'self' is the norm.
+
             ~> So, instead of making instance_name.attribute=value for n different instances, the self keyword is only used the class.
             ~>The parameter names don't have to be same as the attribute names...
         """
         self.model = model
         self.colour =  colour
         self.is_for_sale = is_car_sale
-        
+
     #creating methods (functions inside a class)
     def drive(self)->None:
         """
@@ -57,7 +59,6 @@ if __name__=='__main__':
     """
     car1.colour="Pink"
     print(f"The colour of {car1.model} is {car1.colour}")
-
 
     print(f"The colour of {car2.model} is {car2.colour}")
 
