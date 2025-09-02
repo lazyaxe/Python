@@ -39,6 +39,7 @@ Evaluation of time for execution of a function
 by start time - ending time.
 """
 from time import time, sleep
+from typing import Any
 from unittest import result
 
 start_time=time()
@@ -55,7 +56,7 @@ This is a not an efficient method since every function would it's own difference
 
 We can use the two ways to generalize it:
     1. Make a timer function 
-    2. Use decorators
+    2. decorators
 """
 def timer(function):
     def wrapper(*args, **kwargs):
@@ -131,3 +132,47 @@ It's functionally equivalent to:
 greet=timer(args_info(function=greet))
 """
 print(greet("Harsh", "Sharma", greeting="Hello"))
+
+"""
+Alternative: wrapping a function, but with a class-style decorator.
+"""
+
+class log_args:
+    def __init__(self, function) -> None:
+        self.function=function
+    
+    def __call__(self, *args: Any, **kwargs) -> Any:
+        print("Arguments of ", args)
+        print("Key-word-arguments", kwargs)
+        result=self.function(*args, **kwargs)
+        return result
+    
+@log_args
+def add(*args: int|float)->int|float:
+    total=0
+    for number in args:
+        total+=number
+    return total
+
+
+
+"""
+Why this decorator does not have a wrapper but a __call__ magic|dunder method...?
+~>The __call__ is short for callable method in python classes...
+~> It's role is to be executed when the object is called like a function. which is the 'function' here...
+~> The rest of the process is identical, the interpreter internally calls:
+    function.__call__(*args, **kwargs)
+~>The the return wrapper step is not needed because __call__ is invoked while function=decorator_which_is_class(function) is initialized.
+~>The rest is same...
+
+TL;DR: In function decorators, the wrapper is a nested function. In class decorators, the wrapper is the __call__ method.
+"""
+
+"""
+The class decorators:
+Here the class decorator means the decorators used to modify the behavior of the class.
+"""
+#Will do later ;)
+
+
+
