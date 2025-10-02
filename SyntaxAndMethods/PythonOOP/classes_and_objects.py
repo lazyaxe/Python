@@ -1,20 +1,35 @@
 #CLASSES AND OBJECTS:
 """
+    What is a class?
    ~> A Class is a blueprint to creating a object
    ~> A class is the blueprint of class members/attributes, class functions/methods, constructor and destructor which the object/instance will have.
    ~> An attribute/class members are basically the variables inside the class...
 
    example: 
-    A class/blueprint of a Student might be:
+    ~>A class/blueprint of a Student might be:
             Their attributes will be:
                 their age, grade, roll number, etc...
             Their methods will be:
                 study(), go_to_school() etc..
-   An Object/Instance is a bundle of attribute and methods which are implimented by classes.
+
+    How to define a class?
+        class Class_name:
+            #constructor of the class
+            #methods of class
+
+    What is an instance/object?
+   ~>An Object/Instance is a bundle of attribute and methods which are implimented by classes.
+    example:
+        ~>Harsh is an instance/object of the class Student.
+        ~>He has attribute and methods provided in the blueprint of that class.
+    
+    How to define a instance/object?
+        object = Class_name(attribute1, attribute2, ...)
+        
 """
 class Car:
     """
-        What is a constructor in Python?
+        1. What is a constructor in Python?
             ~> A constructor in Python is a dunder(double underscore) method by which the initialization of the attributes/class members is done directly when creating am instance of the class via arguements...
             ~> Since constructor is just a method. The default args, keyword args, *args, **kwargs can be used... 
             ~> The Constructor can be initialized by:
@@ -23,7 +38,7 @@ class Car:
             ~> The assignment of the variables to attributes is done inside the constuctor method. 
                 By self.attribute=value
     
-        What is the self keyword?
+        2. What is the self keyword?
             ~> The self parameter is the identifier for the object 
             ~> 'self' keyword is arbitrary and any keyword can be used but 'self' is the norm.
             ~> So, instead of making instance_name.attribute=value for n different instances, the self keyword is only used the class.
