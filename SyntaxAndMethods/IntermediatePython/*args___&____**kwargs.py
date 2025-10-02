@@ -1,10 +1,12 @@
+# *args and **kwargs
 '''
- *args
+1. *args or Variable length arguments:
     ~> *arguement_name = allows to pass as many as positional/non-keyword arguements
+    ~> *args are iterable
     ~> '*'  this is the unpacking operator 
-    ~> They store arguments and their values as tuples
-
+    ~> They store inputed arguments as tuples
 '''
+
 def add_numbers(*numbers):#coventionally *args 
     total = 0
     print("Type of *nums", type(numbers))
@@ -18,15 +20,15 @@ print()
 
 #An example for strings
 def display_name(*args):
-    print(type(args))
     for arg in args:
         print(arg, end=" ")
 display_name("Dr.", "Sung", "Jing", "Woo", "II")#position matters for non-keyword arguements
 print()
 
 '''
- **kwargs
-    ~> **arguement_name = allows to pass as many keyword arguements to a function's call 
+2. **kwargs or Keyword Variable length arguments:
+    ~> **arguement_name = allows to pass as many keyword arguements to a function's call.
+    ~> **kwargs are also iterable.
     ~> **kwargs is a dictionary collection
     ~> the kwargs= acts as a "key", and passed arguement acts as a "value" of key
 
@@ -48,23 +50,25 @@ prints_address( steet="123 Fake"
                ,zip_code=54878)#This can hold as many arguments as needed due to *kwargs collection of different primitive data types
 
 #Passing a dictionary as kwarg
+def prints_dict(**kwargs):
+    print()
+    for key, words in kwargs.items():#because kw is passed as an argument for kwargs
+        print("Key:",key, "=", "Value:", words)
+
+
 dict_kwarg_example={
     "steet":"123 Fake" 
     ,"city":"Real City"
     ,"state":"Estate"
     ,"zip_code":54878
 }
-def prints_dict(**kwargs):
-    print()
-    for key, words in kwargs.items():#because kw is passed as an argument for kwargs
-        print("Key:",key, "=", "Value:", words)
         
 prints_dict(a_dictionary=dict_kwarg_example
             ,street="<Name_Of_A_Street>")
-'''
+"""
     NOTE:
              1. 'dict_kwarg_example' will be passed as a value to key a named 'a_dictionary'.
               
              2. In the enclosed for loop of the function 'prints_dict' the print statement treat the    'a_dictionary' as a key and 'dict_kwarg_example' as a value.
-             3. This makes 'kwargs' a "dictionary of dictionary"
-'''
+             3. So, this kwarg will be a dict of dict
+"""
