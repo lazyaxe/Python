@@ -4,22 +4,22 @@ Loops:
 
 There are mainly 2 types of loops:
 1.Entry-controlled:
-    An entry controlled loop is a loop where the iteration of a loop is triggered AFTER the condition is True.
+    An entry controlled loop is a loop where the iteration of a is controlled by the increment operation at start.
     The iteration is done till the condition is true.
 
-    loop(condition)
+    loop(condition, increment the counter)
     {
         #Iteration
     } 
 
 2. Exit-controlled:
-    An exit-contolled loop is a loop where the iteration is triggered BEFORE the condition is False.
-    The iteration is done atleast once.
+    An exit-contolled loop is a loop where the iteration the is controlled by the increment operation at below
     loop(True)
     {
         #iteration
         if not_condition:
             break
+        increment the counter
     }
 
 There are mainly 2 loops in python:
@@ -30,18 +30,18 @@ There are mainly 2 loops in python:
 """
 WHILE LOOP: 
 
-SYNTAX:
+    SYNTAX:
 
-counter=0
-while(condition):
-    #code
-    counter+=1
+    counter=0
+    while(condition):
+        #code
+        counter+=1
 """
-i=0
-while(i<5):
-    print("The i is ",i)
-    i+=1
 
+i=0
+while i<10:
+    print(i)
+    i+=1
 
 name = input("Enter your name =")
 while(name == "" or name==" "):
@@ -62,41 +62,39 @@ while not number<0 and number%3==0:
     number = int(input("Number = "))
 print(f"This {number}  number checks out")
 
-#Unrelated While loop
-i=0
-while i<10:
-    print(i)
-    i+=1
 """
 FOR LOOP:
 
-SYNTAX:
+    SYNTAX:
 
-for i in range(number):
-    #code
+    for i in range(number):
+        #code
 
-A for loop generally uses a range() function for the counter updation/incrementation.
+    A for loop generally uses a range() function for the counter updation/incrementation.
 
-1. What is range() function?:
-The range() generates a list of numbers form 0 to n-1.
+    1. What is range() function?:
+        The range() is an iterable(a varible which can be iterated/looped) form 0 to n-1.
 
-The range function can have three arguements:
-    i. stop: range(31)
-    ii. start: range(5, 31), creates a list from 5 to 30.
-    iii. step: range(5, 31, 2), creates a list from 5 to 30 but skipping 2 numbers [7, 10, 13, ...]  
-For example:
-    range(5)=generates list of [0, 1, 2, 3, 4]
+    The range function can have three arguments: range(start, stop, step)
+        The range can have theree types
+        i). If only one argument is given: range(stop)
+            range(31), 0 to (31-1)
+        ii). If two args are given:
+            range(5, 31), 5 to (31-1).
+        iii). for three args: range(start, stop, step)
+            step: range(5, 31, 2), 5 to (31-1) but skipping 2 numbers (7, 10, 13, ...)
+    For example:
+        range(5)=generates list of [0, 1, 2, 3, 4]
 
-    range(1,7)= generates a list of including numbers including 1 but not 7=> [1, 2, 3, 4, 5, 6]
+        range(1,7)= generates a list of including numbers including 1 but not 7=> [1, 2, 3, 4, 5, 6]
 
-    range(3, 31, 3)= generates a list of numbers including 3 but not 31 and skips by only printing  every 3rd element=> [3, 6, 9, 12, 24, 27, 30]
+        range(3, 31, 3)= generates a list of numbers including 3 but not 31 and skips by only printing  every 3rd element=> [3, 6, 9, 12, 24, 27, 30]
 
-2. 'in' is membership operator that checks if the 'i' is IN range of 0 to 'number' or not. If True, loop is iterated successfully. 
-If the 'in' returns False and loop is terminated.
+    2. 'in' is membership operator that checks if the 'i' is IN range of 0 to 'number' or not. If True, loop is iterated successfully. 
+    If the 'in' returns False and loop is terminated.
 """
 for i in range(4):
     print(i)
-    #loop to print items on the same line
 print()#for new line
 
 for i in range(5):
