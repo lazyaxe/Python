@@ -81,13 +81,13 @@ multi_val_operation(x=42, y=5)
 """
 Using lambda with map():
 
-    ~>The map() function in Python takes in a function and a list as an argument. 
-    ~>The function is called with a lambda function and a new list is returned which contains all the lambda-modified items returned by that function for each item. 
+    ~>The map() function in Python takes in a function and a iterable as an argument. 
+    ~>A map function is an iterator that vectorizes each element in the iterable i.e. list here and aplies the given function on each element without the need of a loop and returns a map object 
 """
 
 a_list=[1, 2, 3, 4, 5]
-a_list=map(lambda x:x**2, a_list)#A map function is an iterator that vectorizes each element in the iterable i.e. list here and aplies the given function on each element with the need of a loop and returns a map object
-a_list=list(a_list)
+a_list=map(lambda x:x**2, a_list)
+a_list=list(a_list) #type cast from map-object to list
 print(a_list)
 
 string="input string"
@@ -99,11 +99,11 @@ print(string)
 numbers:list[int]=[3, 4, 5, 6, 7]
 
 #Let's the make a DIY map function
-def map_list(function, iterable):
+def map_list(function, input_list):
     result=[] #could be any iterable(list, string, tuple, dict) etc...
-    for item in iterable:
+    for item in input_list:
         new_item=function(item)
         result.append(new_item)
     return result
 
-print(map_list(function=lambda x: x**3, iterable=numbers))
+print(map_list(function=lambda x: x**3, input_list=numbers))
