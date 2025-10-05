@@ -14,7 +14,7 @@ SYNTAX:
 keys_or_names = ["Patrick", "Pro", "Itachi", "Aura"]
 values_or_grades=["A", "S", "A+", "F"]
 
-dictionary_or_dataset = {key: value for key, value in zip(keys_or_names, values_or_grades) if value.isalpha() and key.isalpha()}
+dictionary_or_dataset = {key: value for key, value in zip(keys_or_names, values_or_grades) if value and key.isalpha()}
 """
 What is zip?:
     The zip object yields n-length tuples, where n is the number of iterables
