@@ -1,13 +1,12 @@
 """
 Execption:
-    Excecption is an event/error that interrupts the flow of the program like ZeroDivisionError, TypeError (like operation on a wrong datatype), ValueError (invaild type conversion str->int )
+    ~> Excecption is an event/error that interrupts the flow of the program like ZeroDivisionError, TypeError (like operation on a wrong datatype), ValueError (invaild type conversion str->int )
 
 There are 4 parts in exception handling:
-
-1. try (executing a code snippet)
-2. except (catching the error)
-3. else (if try block succeeds)
-4. finally (crucial for clean ups like closing a open file after work is done)
+    1. try (executing a code snippet)
+    2. except (catching the error)
+    3. else (if try block succeeds)
+    4. finally (crucial for clean ups like closing a open file after work is done)
 """
 import logging as log
 try:
