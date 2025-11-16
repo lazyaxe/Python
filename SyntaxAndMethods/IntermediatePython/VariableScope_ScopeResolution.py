@@ -1,66 +1,75 @@
+# VARIABLE SCOPE IN Python:
 """
-Variable scope:
-    Variable scope is a field where a variable is visible/accessible or not.
-    Variables can have the same name as long as they are in different scope.
+    ~> Variable scope is a field where a variable is visible/accessible or not.
+    ~> Variables can have the same name as long as they are in different scope.
 
-Scope resolution follows (L->E->G->B) Local->Enclosed->Global->Built-in
+Scope resolution follows (L->E->G->B) Local -> Enclosed -> Global -> Built-in
 """
+
+#1. Local Scope: Scope resolution order is (->LEGB)
 def function1():
-    a=1 #local to function1()
-    print(a)
-def function2():
-    a=2 #local to funtion2
-    print(a)
+    a = 1 #local to function1()
+    print("Function 1's a = ", a)
 
+def function2():
+    a = 2 #local to funtion2
+    print("Function 2's a = ", a)
+
+#Both function1 and function2 have different value of a same named variable.
 function1()
 function2()
-#Both function1 and function2 have different value of a same named variable.
+
 print()
 
-print("For Nested functions:(Enclosed scope)")
-#Scope resolution order is (L->EGB)
+#2. Enclosed Scope: Scope resolution order is (L->EGB)
 """
 Definition: An enclosed variable is a variable that is defined in the scope of an outer (enclosing) function and is then referenced by an inner (nested) function.
 """
+print("For Nested functions:(Enclosed scope)")
 
 def function3():
-    a=1 #local to function1()
-    print("The O.G Value = ",a)
+    a = 1 #local to function3
     def function4():
-        a=2 #local to funtion2, there was no 'a' in func2 then we would use the enclosed 'a' of func1 Variable scope
-        print("The Nested function's value = ",a)
+        #if there was no 'a' in function 4 then mro would use the enclosed 'a' of function 3's 'a' variable
+        a = 2 #local to funtion 4
+        print("Function 4's a = ", a)
+    def function5():
+        #if there is no 'a' in function5 then mro would use the enclosed 'a' of function3's 'a' variable
+        print("Function 5's a = ", a)
     function4()#calling the inner function, inside function3
-    print("The Final Value = ",a)
+    function5()
+    print("Function 3's a = ", a)
+
 function3()
+
 print()
 
-print("for Global Scope(LE->GB)")
+#3. Global Scope: Scope resolution order is (LE->GB)
 print("If no local variables are found, then global variable(s) are used:")
+
 def function5():
-    print(a)
+    print("Function 5: ", a)
 def function6():
-    print(a)
-a=3
+    print("Function 6: ", a)
+
+a = 3
+
+#In both functions calls, a = 3 would be used
 function5()
 function6()
 print()
 
-print("If enclosed variables are found, then they are used:")
-def function7():
-    a=1
-    print(a)
-def function8():
-    a=2
-    print(a)
-a=3
-function7()
-function8()
-print()
+#4. built-in variables: Scope resolution order is (LEG->B)
+#built-in variables are varibles that are already in Python, or in Python's modules...
+from math import e
 
 print("For built-in variables")
-from math import e
-print("before any local initiallization: ",e)
+
+print("before any local initiallization: ", e)
+
 print("If no local variables are found, then global variable(s) are used:")
-e=3  
-print("after a local initiallization ",e)
+
+e = 3
+
+print("after a local initiallization ", e)
 print()
