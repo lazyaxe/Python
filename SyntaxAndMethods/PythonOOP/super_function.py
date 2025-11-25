@@ -18,8 +18,7 @@ SYNTAX:
 from math import pi
 
 class Shape:
-    def __init__(self, shape_colfly
-For what it's worth, I hope you enjoy the showour : str, is_colour_filled : bool)->None:
+    def __init__(self, shape_colour : str, is_colour_filled : bool)->None:
         self.shape_colour = shape_colour
         self.is_colour_filled = is_colour_filled
     
