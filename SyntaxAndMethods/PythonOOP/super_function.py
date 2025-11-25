@@ -1,73 +1,66 @@
+#SUPER FUNCTION IN Python
 """
-super():
-    A function used in child class(sub-class) to call methods from a parent class(base-class)
-
-~> It is similar to C++'s way of inheriting constructors from parent classes in Python
-~> Also can be used for "Co-operative Polymorphism" and avoid the Diamond Problem.
-~> super() is a mro navigator from which
+    ~>A function used in child class(sub-class) to call methods (usually the constructor & base/super class's methods) from a parent class(base/super-class)
+    ~> It is similar to C++'s way of inheriting constructors from parent classes in Python
+    ~> Also can be used for "Co-operative Polymorphism" and can help in avoiding the Diamond Problem
+        ~> super() can be a mro navigator so if a class SubClass(BaseClass1, BaseClass2)
+        ~> The super function will call the BaseClass1's method then BaseClass2's method. 
 
 SYNTAX:
-class base:
-
+    class Base:
+        def method(self, *attributes):
+            #code here
+    
+    class Sub(Base/Super):
+        def method(self, *attributes):
+            super().method(*inherited_attributes)
 """
 from math import pi
 
-
 class Shape:
-    def __init__(self, shape_colour: str, is_colour_filled: bool)->None:
+    def __init__(self, shape_colfly
+For what it's worth, I hope you enjoy the showour : str, is_colour_filled : bool)->None:
         self.shape_colour = shape_colour
         self.is_colour_filled = is_colour_filled
-
-class Circle(Shape):
-    def __init__(self, shape_colour: str, is_colour_filled: bool, radius: int|float=0)->None:
-        super().__init__(shape_colour, is_colour_filled)
-        self.radius= float(radius)
-    """
-        Why super() is used here?:
-        Super function is needed here because of two things:
-        1. Although the sub-class inherits the constructor from the base-class, but we can't tweak/add/remove something from the base-class's contructor. If we want to, then we need to make a constructor of our own.
-        2. We need to remove the need of manually re-assigning the attributes that already inherited from the base class...
-        3. We need to make a contructor of a class more "Pythonic".
-
-        ~>So the super() function, goes to the base/parent class of this sub-class and super().__init__() access the __ini__ method of the base class i.e.super() access the Shape class and accesses/calls its constructor and assigns the  given as args. super()__init__() handled the assignment of the inherited attributes neatly.
-        ~>So here, super().__init__ is like calling a constructor for a constructor. :O
-    """
     
-    def calculate_area(self)->int|float:
-        return pi*(self.radius**2)
-
-class Triangle(Shape):
-    def __init__(self, shape_colour, is_colour_filled, width=0, height=0):
+#Simple Inheritance
+"""
+super() for constructors __init__:
+    ~>Super function is needed here because of two reasons:
+        1. Although, the sub-class inherits the constructor from the base/super-class, but we can't tweak/add/remove something in the inherited base/super-class's contructor. If we want to do that, we need to make a constructor of our own.
+        2. We need to remove the need of manually re-assigning the attributes that already inherited from the base/super class...and make the process Pythonic.
+    ~>So the super() function, goes to the base/super/parent class of this sub-class and super().__init__() access the __init__ method of the base/super class i.e.super() accesses the Shape class and calls its constructor and assigns the  given as args. super()__init__() handled the assignment of the inherited attributes neatly.
+    ~>So, here super().__init__() is like calling a constructor for a constructor. O_O
+"""
+class Circle(Shape):
+    def __init__(self, shape_colour : str, is_colour_filled : bool, radius : int | float = 0) -> None:
         super().__init__(shape_colour, is_colour_filled)
-        self.width = float(width)
-        self.height = float(height) 
+        self.radius = radius
 
-class Tire(Circle):
-    def __init__(self, shape_colour: str, is_colour_filled: bool, radius: int | float = 0, inner_radius: int | float = 0) -> None:
-        super().__init__(shape_colour, is_colour_filled, radius)
-        self.inner_radius=inner_radius
+    def calculate_area(self) -> float:
+        return pi * (self.radius ** 2)
 
-    def calculate_area(self) -> int|float:
-        """
-        Because Tire is a sub class of Circle it inherits the attributes, constructor and methods of class Circle.
-        Because we have the same nameed method, we are doing method overriding of the base method.
-        We can do this overriding in a Pythonic way, by super()...
-        The super() accesses the method of the base class but where self is this class's instance... 
-        """
-        return super().calculate_area() - pi*(self.inner_radius**2)
-
-circle1 = Circle(shape_colour="Red", is_colour_filled=False, radius= 69)
+circle1 = Circle(shape_colour = "Red", is_colour_filled = False, radius = 69)
 print(circle1.radius, "meters")
 print(circle1.shape_colour)
 print(f"Is shape filled ?", circle1.is_colour_filled)
 print(f"The area of circle {circle1.calculate_area()}")
 print()
 
-tire1=Tire(shape_colour="Black", is_colour_filled=False, radius=10, inner_radius=5)
-print(f"The area of tire {tire1.calculate_area()}")
+#Multi-level Inheritance
+class Tire(Circle):
+    def __init__(self, shape_colour: str, is_colour_filled: bool, radius: int | float = 0, inner_radius: int | float = 0) -> None:
+        super().__init__(shape_colour, is_colour_filled, radius)
+        self.inner_radius = inner_radius
 
-triangle1 = Triangle(shape_colour="Purple", is_colour_filled=True, width=96, height=69 )
-print(triangle1.width, "meters")
-print(triangle1.height, "meters")
-print(triangle1.shape_colour)
-print(f"Is shape filled ?", triangle1.is_colour_filled)
+    def calculate_area(self)-> float:
+        """
+        ~> Because Tire inherits the attributes, constructor and methods of class Circle.
+        ~> We have the same named method in the base/super class, therefore we are doing method overriding of the base/super method calculate_area.
+        ~> We can do this overriding in the Pythonic way, by super function
+        ~> The super() accesses the method of the base/super class but uses the 'self' of this class's instance 
+        """
+        return super().calculate_area() - (pi * self.inner_radius ** 2)
+
+tire1 = Tire(shape_colour = "Black", is_colour_filled = False, radius = 10, inner_radius = 5)
+print(f"The area of tire {tire1.calculate_area()}")
